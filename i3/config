@@ -8,6 +8,10 @@ exec --no-startup-id feh --bg-fill ~/Pictures/renaissance-art-collection/the-bar
 # Start pipewire services
 exec --no-startup-id pipewire &
 
+# --- Automated Security Timeout (900 Seconds / 15 Minutes) ---
+exec --no-startup-id xset s 900
+exec --no-startup-id xss-lock -- i3lock -i ~/Pictures/your_wallpaper.png
+
 # --- Appearance ---
 # Set gap widths
 #gaps inner 10
@@ -29,14 +33,22 @@ client.unfocused        #929294 #505050 #c3c3c3 #222222   #222222
 client.urgent           #2f343a #900000 #ffffff #222222   #222222
 client.placeholder      #000000 #0c0c0c #ffffff #222222   #222222
 
-# --- Rules ---
+# --- Window Rules ---
 for_window [class="Firefox" title="Picture-in-Picture"] floating enable
+for_window [class="hud-floating"] floating enable, border normal, resize set 680 480, move position center
+for_window [class="hud-monitor"] floating enable, border normal, resize set 400 400
 
+# i3bar and 13status Configuration
 bar {
-	position bottom
-	status_command i3status
-	
-	font pango:terminus
-	workspace_buttons yes
-	strip_workspace_numbers yes
+        position bottom
+        status_command i3status
+
+        font pango:terminus
+        workspace_buttons yes
+        strip_workspace_numbers yes
 }
+~
+~
+~
+~
+"/home/dcn/.config/i3/config" 49L, 1596B                       
